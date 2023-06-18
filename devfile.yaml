@@ -1,0 +1,27 @@
+schemaVersion: 2.1.0
+metadata:
+  name: e2startup
+components:
+  - name: tools
+    container:
+      image: electronsquare/startup:latest
+      memoryLimit: 1G
+      mountSources: true
+commands:
+  - id: build
+    exec:
+      label: "Build application"
+      component: tools
+      workingDir: "${PROJECT_SOURCE}"
+      commandLine: pio run -t build 
+      group:
+        kind: build
+        isDefault: true
+  - id: clean
+    exec:
+      label: "Cleanup"
+      component: tools
+      workingDir: "${PROJECT_SOURCE}"
+      commandLine: pio run -t clean
+      group:
+        kind: clean

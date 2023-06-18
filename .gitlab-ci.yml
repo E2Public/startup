@@ -1,0 +1,4 @@
+include:
+  - project: 'e2-team/firmware/ci-templates'
+    ref: master
+    file: '/samples.yml'
